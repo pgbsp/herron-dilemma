@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#403124" />
+  <title>Battle of Prairie Grove | Commander's Dilemma</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Battle of Prairie Grove</h1>
+    <p class="subtitle">Can You Lead Herron's Army?</p>
+    <p class="tagline">A Civil War Command Decision Experience</p>
+  </header>
+
+  <main class="container">
+    <section class="card" id="dilemmaCard" aria-live="polite">
+      <p class="screen-label">Interpretive Activity</p>
+      <h2 id="sceneTitle" tabindex="-1">Loading Scenario…</h2>
+
+      <div class="intro-story">
+        <p>December 7, 1862. After a forced march from Springfield, Union troops under General Francis J. Herron approached Prairie Grove exhausted but determined. Confederate forces held strong positions along the ridge ahead.</p>
+      </div>
+
+      <section class="status-grid" aria-label="Army status">
+        <div class="stat"><span class="label">Tempo</span><div class="bar-wrap"><div class="bar" id="timeBar"></div></div><span class="value" id="timeVal"></span></div>
+        <div class="stat"><span class="label">Supply</span><div class="bar-wrap"><div class="bar" id="supplyBar"></div></div><span class="value" id="supplyVal"></span></div>
+        <div class="stat"><span class="label">Morale</span><div class="bar-wrap"><div class="bar" id="moraleBar"></div></div><span class="value" id="moraleVal"></span></div>
+        <div class="stat"><span class="label">Cohesion</span><div class="bar-wrap"><div class="bar" id="cohesionBar"></div></div><span class="value" id="cohesionVal"></span></div>
+        <div class="stat"><span class="label">Casualties</span><div class="bar-wrap"><div class="bar danger" id="casualtyBar"></div></div><span class="value" id="casualtyVal"></span></div>
+        <p class="step-indicator">Decision <span id="stepVal">1</span> of <span id="stepMax">7</span> <span class="badge" id="phaseTag"></span> <span class="badge hidden" id="routeTag"></span></p>
+      </section>
+
+      <div class="scene-body" id="sceneBody"></div>
+      <div class="choice-list" id="choiceList" role="radiogroup" aria-label="Choose your command decision"></div>
+
+      <div class="button-row">
+        <button class="primary-btn" id="confirmBtn" type="button">Confirm Decision</button>
+        <button class="secondary-btn" id="resetBtn" type="button">Start Over</button>
+        <button class="text-btn" id="shareBtn" type="button">Share Results</button>
+      </div>
+
+      <section class="outcome-box hidden" id="outcomeBox" aria-live="polite">
+        <h3 id="outcomeTitle"></h3>
+        <p id="outcomeSummary"></p>
+        <div class="outcome-metrics">
+          <p>Morale: <strong id="finalMorale"></strong> (<span id="finalMoraleNum"></span>)</p>
+          <p>Supply: <strong id="finalSupply"></strong></p>
+          <p>Cohesion: <strong id="finalCohesion"></strong> (<span id="finalCohesionNum"></span>)</p>
+          <p>Tempo: <strong id="finalTime"></strong></p>
+          <p>Union casualties: <strong id="finalCasualties"></strong></p>
+          <p>Historic decisions: <strong id="historicCount"></strong> of 7</p>
+          <p>Phases: <strong id="finalPhases"></strong></p>
+          <p>Command path: <strong id="finalPath"></strong></p>
+        </div>
+      </section>
+
+      <section class="map-section" aria-labelledby="mapTitle">
+        <h3 class="map-title" id="mapTitle">Battlefield Positions</h3>
+        <div class="battle-map">
+          <div class="map-visual">
+            <img class="map-base" id="mapBase" alt="Historic map of the Prairie Grove battlefield" />
+            <svg class="map-overlay" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <g class="lines-union" id="unionLines"></g>
+              <g class="lines-conf" id="confLines"></g>
+            </svg>
+          </div>
+          <p class="map-caption">Troop lines are schematic and illustrate the decisions in this activity.</p>
+        </div>
+        <div class="map-legend">
+          <span class="legend-item"><span class="strip strip-union"></span> Union positions</span>
+          <span class="legend-item"><span class="strip strip-conf"></span> Confederate positions</span>
+        </div>
+      </section>
+
+      <details class="notes">
+        <summary>About this activity</summary>
+        <p>This interpretive activity simplifies a complex historical battle into a series of command decisions. Outcomes are illustrative, not a substitute for historical research.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer>Prairie Grove Battlefield State Park · Arkansas</footer>
+  <script src="script.js"></script>
+</body>
+</html>
+
