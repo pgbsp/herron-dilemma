@@ -327,7 +327,7 @@ function showOutcome() {
    Decision 5: Blunt’s line drawn north (smaller Y) of the Confederate ridge. */
 const TROOP_LINES = {
   "1": { // union forming; conf ridge
-    union: [ [[62,44],[70,42],[78,40]] ],          // guns forming near river
+    union: [ [[75,20],[82,25]] ],          // guns forming near river
     conf:  [ [[18,60],[32,58],[45,58],[60,59],[78,62]] ]  // ridge crest arc
   },
   "2": { // artillery duel
