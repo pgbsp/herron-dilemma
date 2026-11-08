@@ -448,11 +448,14 @@ function renderNode(nodeId) {
 
     const desc = document.createElement("p"); desc.textContent = ch.desc;
 
-    // Tap the whole card to select
+    // Keep the visual selection in sync for pointer and keyboard radio changes.
+    radio.addEventListener("change", () => {
+      choiceList.querySelectorAll(".choice").forEach(c => c.classList.remove("selected"));
+      if (radio.checked) wrap.classList.add("selected");
+    });
     wrap.addEventListener("click", () => {
       radio.checked = true;
-      choiceList.querySelectorAll(".choice").forEach(c => c.classList.remove("selected"));
-      wrap.classList.add("selected");
+      radio.dispatchEvent(new Event("change", { bubbles: true }));
     });
 
     wrap.appendChild(radio);
@@ -597,7 +600,8 @@ function selectChoiceByOffset(offset) {
   radios[nextIdx].closest(".choice")?.classList.add("selected");
 }
 function handleKeydown(e) {
-  if (!document.activeElement || !dilemmaCard.contains(document.activeElement)) return;
+  // Limit decision shortcuts to the choice controls so buttons retain native behavior.
+  if (!choiceList.contains(document.activeElement)) return;
   const key = e.key.toLowerCase();
   if (key === "arrowdown") { e.preventDefault(); selectChoiceByOffset(+1); }
   else if (key === "arrowup") { e.preventDefault(); selectChoiceByOffset(-1); }
@@ -642,4 +646,3 @@ function hydrateFromURL() {
     }
   }
 }
-
